@@ -7,7 +7,7 @@ Tạo Auth Token. VD: `ZgfF891vD5q+7pLVO`
 Login vào Oracle Registry:
 
 ```bash
-echo "ZgfF891vD5q+7pLVO" | podman login container-registry.oracle.com -u "nthoc.tgg@gmail.com" --password-stdin
+echo "ZgfF891vD5q+7pLVO" | podman login container-registry.oracle.com -u "<your-oracle account>" --password-stdin
 ```
 
 Pull Oracle database image:
