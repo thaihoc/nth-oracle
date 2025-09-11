@@ -22,10 +22,16 @@ Tạo Volumn trên podman để lưu dữ liệu:
 podman volume create oracle19c
 ```
 
+Tạo network nếu chưa có:
+
+```bash
+podman network create nth
+```
+
 Run Oracle database:
 
 ```bash
-podman run -d
+podman run -d --network nth
   --name oracle19c
   -p 1521:1521 -p 5500:5500
   -e ORACLE_SID=ORCLCDB
@@ -36,7 +42,7 @@ podman run -d
   -v oracle19c:/opt/oracle/oradata
   container-registry.oracle.com/database/enterprise:19.3.0.0
   ```
-Sau khi container chạy xong, tắt restricted mode:
+Đăng nhập thử bằng tài khoản sys:
 
 ```bash
 podman exec -it oracle19c sqlplus sys/hocnt123@ORCLCDB as sysdba
