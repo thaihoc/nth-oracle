@@ -4,7 +4,7 @@
 
 Đăng nhập vào trang Oracle Registry, tạo Auth Token. VD: `ZgfF891vD5q+7pLVO`
 
-Đăng nhập vào Oracle Registry:
+Mở Podman và chạy lệnh sau để Podman xác thực với Oracle Registry:
 
 ```bash
 echo "ZgfF891vD5q+7pLVO" | podman login container-registry.oracle.com -u "<your-oracle account>" --password-stdin
