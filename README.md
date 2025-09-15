@@ -50,8 +50,40 @@ podman exec -it oracle19c sqlplus sys/hocnt123@ORCLCDB as sysdba
 
 ## Tham khảo
 
-Đặt lại mật khẩu cho các user DBA:
+#### Đặt lại mật khẩu cho các user DBA
 
 ```bash
 podman exec oracle19c ./setPassword.sh hocnt123
+```
+
+#### Kiểm tra để chắc chắn rằng Oracle đã chạy Archive Log mode
+
+Chạy SQL kiểm tra:
+
+```sql
+ARCHIVE LOG LIST;
+```
+
+Kết quả:
+
+```
+Database log mode              Archive Mode
+Automatic archival             Enabled
+Archive destination            /opt/oracle/oradata/ORCLCDB/archive_logs
+Oldest online log sequence     6
+Next log sequence to archive   8
+Current log sequence           8
+```
+Hoặc sử dụng lệnh:
+
+```sql
+SELECT LOG_MODE FROM V$DATABASE;
+```
+
+Kết quả:
+
+```
+LOG_MODE
+------------
+ARCHIVELOG
 ```
