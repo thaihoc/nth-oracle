@@ -1,10 +1,10 @@
-# Hướng dẫn cài Oralce 19c bằng Podman
+# Hướng dẫn cài Oracle 19c bằng Podman
 
-Đăng ký tài khoản nếu chưa có: https://container-registry.oracle.com
+Đăng ký tài khoản Oracle tại trang Oracle Registry nếu chưa có: https://container-registry.oracle.com
 
-Tạo Auth Token. VD: `ZgfF891vD5q+7pLVO`
+Đăng nhập vào trang Oracle Registry, tạo Auth Token. VD: `ZgfF891vD5q+7pLVO`
 
-Login vào Oracle Registry:
+Đăng nhập vào Oracle Registry:
 
 ```bash
 echo "ZgfF891vD5q+7pLVO" | podman login container-registry.oracle.com -u "<your-oracle account>" --password-stdin
