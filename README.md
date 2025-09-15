@@ -42,7 +42,7 @@ podman run -d --network nth
   -v oracle19c:/opt/oracle/oradata
   container-registry.oracle.com/database/enterprise:19.3.0.0
   ```
-Đăng nhập thử bằng tài khoản sys:
+Như vậy bạn đã cài xong Oracle 19c bằng Podman. Đăng nhập thử bằng tài khoản sys:
 
 ```bash
 podman exec -it oracle19c sqlplus sys/hocnt123@ORCLCDB as sysdba
