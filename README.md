@@ -7,14 +7,8 @@
 Mở Podman và chạy lệnh sau để Podman xác thực với Oracle Registry:
 
 ```bash
-echo "H2zoA72RGn+rRi8hMa" | podman login container-registry.oracle.com -u "<your-oracle account>" --password-stdin
+echo "ZgfF891vD5q+7pLVO" | podman login container-registry.oracle.com -u "<your-oracle account>" --password-stdin
 ```
-H2zoA72RGn+rRi8hMa
-
-podman login container-registry.oracle.com -u "nthoc.tgg@vnpt.vn" -p "GkppQKLVY7WLV6pE1zWm2U"
-
-echo "H2zoA72RGn+rRi8hMa" | podman login container-registry.oracle.com -u "nthoc.tgg@gmail.com" --password-stdin
-
 
 Pull Oracle database image cho OS Arch là amd:
 
