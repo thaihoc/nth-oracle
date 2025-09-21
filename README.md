@@ -7,13 +7,25 @@
 Mở Podman và chạy lệnh sau để Podman xác thực với Oracle Registry:
 
 ```bash
-echo "ZgfF891vD5q+7pLVO" | podman login container-registry.oracle.com -u "<your-oracle account>" --password-stdin
+echo "H2zoA72RGn+rRi8hMa" | podman login container-registry.oracle.com -u "<your-oracle account>" --password-stdin
 ```
+H2zoA72RGn+rRi8hMa
 
-Pull Oracle database image:
+podman login container-registry.oracle.com -u "nthoc.tgg@vnpt.vn" -p "GkppQKLVY7WLV6pE1zWm2U"
+
+echo "H2zoA72RGn+rRi8hMa" | podman login container-registry.oracle.com -u "nthoc.tgg@gmail.com" --password-stdin
+
+
+Pull Oracle database image cho OS Arch là amd:
 
 ```bash
 podman pull container-registry.oracle.com/database/enterprise:19.3.0.0
+```
+
+Pull Oracle database image cho OS Arch là arm:
+
+```bash
+podman pull container-registry.oracle.com/database/enterprise:19.19.0.0
 ```
 
 Tạo Volumn trên podman để lưu dữ liệu:
@@ -28,20 +40,36 @@ Tạo network nếu chưa có:
 podman network create nth
 ```
 
-Run Oracle database:
+Run Oracle database OS arch là amd:
 
 ```bash
-podman run -d --network nth
-  --name oracle19c
-  -p 1521:1521 -p 5500:5500
-  -e ORACLE_SID=ORCLCDB
-  -e ORACLE_PDB=ORCLPDB1
-  -e ORACLE_PWD=hocnt123
-  -e ORACLE_CHARACTERSET=AL32UTF8
-  -e ENABLE_ARCHIVELOG=true
-  -v oracle19c:/opt/oracle/oradata
+podman run -d --network nth \
+  --name oracle19c \
+  -p 1521:1521 -p 5500:5500 \
+  -e ORACLE_SID=ORCLCDB \
+  -e ORACLE_PDB=ORCLPDB1 \
+  -e ORACLE_PWD=hocnt123 \
+  -e ORACLE_CHARACTERSET=AL32UTF8 \
+  -e ENABLE_ARCHIVELOG=true \
+  -v oracle19c:/opt/oracle/oradata \
   container-registry.oracle.com/database/enterprise:19.3.0.0
   ```
+
+Run Oracle database OS arch là arm:
+
+```bash
+podman run -d --network nth \
+  --name oracle19c \
+  -p 1521:1521 -p 5500:5500 \
+  -e ORACLE_SID=ORCLCDB \
+  -e ORACLE_PDB=ORCLPDB1 \
+  -e ORACLE_PWD=hocnt123 \
+  -e ORACLE_CHARACTERSET=AL32UTF8 \
+  -e ENABLE_ARCHIVELOG=true \
+  -v oracle19c:/opt/oracle/oradata \
+  container-registry.oracle.com/database/enterprise:19.19.0.0
+  ```
+
 Như vậy bạn đã cài xong Oracle 19c bằng Podman. Đăng nhập thử bằng tài khoản sys:
 
 ```bash
